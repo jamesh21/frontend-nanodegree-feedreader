@@ -40,9 +40,8 @@ $(function() {
 
 
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a name defined
-         * and that the name is not empty.
+         /*
+         * Loops through the feed and test if the name is empty or undefined
          */
          it('Each feed should have a name defined', function() {
              for (let feed of allFeeds) {
@@ -53,21 +52,30 @@ $(function() {
     });
 
 
-    /* TODO: Write a new test suite named "The menu" */
 
-        /* TODO: Write a test that ensures the menu element is
-         * hidden by default. You'll have to analyze the HTML and
-         * the CSS to determine how we're performing the
-         * hiding/showing of the menu element.
+    describe('The menu', function () {
+
+         /*
+         * Tests if the menu is hidden initially when the page is loaded.
          */
+         it('The menu should be hidden by default', function () {
+             expect($('body').hasClass('menu-hidden')).toBe(true);
+         });
 
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-
+          // it('The menu should be visible when clicked', function () {
+          //     $('.menu-icon-link').on('click', function () {
+          //         expect($('body').hasClass('menu-hidden')).toBe(false);
+          //     });
+          //
+          // });
+    });
     /* TODO: Write a new test suite named "Initial Entries" */
+    describe('Initial Entries', function () {
 
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
@@ -75,6 +83,7 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+    });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
