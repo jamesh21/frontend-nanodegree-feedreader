@@ -26,7 +26,6 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
-
         /*
         * Loops through the feed and test if the url is empty or undefined
         */
@@ -36,9 +35,6 @@ $(function() {
                  expect(feed.url.length).not.toBe(0);
              }
          });
-
-
-
 
          /*
          * Loops through the feed and test if the name is empty or undefined
@@ -67,15 +63,17 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-          // it('The menu should be visible when clicked', function () {
-          //     $('.menu-icon-link').on('click', function () {
-          //         expect($('body').hasClass('menu-hidden')).toBe(false);
-          //     });
-          //
-          // });
+          it('The menu should be visible when clicked', function () {
+              $('.menu-icon-link').trigger('click');
+              expect($('body').hasClass('menu-hidden')).toBe(true);
+              $('.menu-icon-link').trigger('click');
+              expect($('body').hasClass('menu-hidden')).toBe(false);
+
+
+          });
     });
     /* TODO: Write a new test suite named "Initial Entries" */
-    describe('Initial Entries', function () {
+    // describe('Initial Entries', function () {
 
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
@@ -83,7 +81,7 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-    });
+    // });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
