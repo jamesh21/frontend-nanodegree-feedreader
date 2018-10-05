@@ -76,27 +76,43 @@ $(function() {
     */
     describe('Initial Entries', function () {
 
+        /*
+        * Before each test, load the feed and signal for the test after the function
+        * is completed.
+        */
         beforeEach(function (done) {
-            loadFeed(0, function () {
-                done();
-            });
+            // loadFeed(0, function () {
+            //     done();
+            // });
+            loadFeed(0, done);
         });
 
         /*
         * Tests to see if the feed is loaded initially.
         */
-         it('The feed container should contain atleast one feed', function (done) {
+         it('The feed container should contain atleast one feed', function () {
              expect($('.feed').children().length).not.toBe(0);
          });
     });
 
     /*
-    * Test Suite for the feed changing.
+    * Test Suite for feed changing.
     */
     describe('New Feed Selection', function () {
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
-         */
+        let prevFeed;
+        beforeEach(function (done) {
+            loadFeed(0, function () {
+                // Saving previous feed html to be used later for comparison
+                prevFeed = $('.feed').html();
+                loadFeed(1, done);
+            });
+        });
+        
+        /*
+        * Testing if the feed has changed when loading a new feed.
+        */
+         it('The feed should change', function () {
+             expect($('.feed').html()).not.toBe(prevFeed);
+         });
      });
 }());
