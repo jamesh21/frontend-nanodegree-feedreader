@@ -91,7 +91,7 @@ $(function() {
         * Tests to see if the feed is loaded initially.
         */
          it('The feed container should contain atleast one feed', function () {
-             expect($('.feed').children().length).not.toBe(0);
+             expect($('.feed .entry').length).toBeGreaterThan(0);
          });
     });
 
@@ -107,7 +107,7 @@ $(function() {
                 loadFeed(1, done);
             });
         });
-        
+
         /*
         * Testing if the feed has changed when loading a new feed.
         */
